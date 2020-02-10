@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar style="background:orange !important">
+    <ion-title>
+        <img src="/assets/gsk_branco.png" >
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card class="topo-domundo">
+         <h1 style="text-align: center !important; size:42px; color:white"color="white"><b>GSK VideoLAB</b></h1>
+         <h4  style="text-align: center !important; color:white"><i>Assista seus vídeos através da nossa plataforma.</i></h4>
+  </ion-card>
+  
+<ion-grid>
+  <ion-row>
+    <ion-col *ngFor="let items of allList " size="6">
+      <ion-card >
+         <ion-fab vertical="top" style="--background-hover: white !important;" horizontal="start" slot="fixed">
+             <ion-fab-button   [routerLink]="['/video-modal/' + items.id]">
+                <ion-icon name="play"></ion-icon>
+              </ion-fab-button>
+             
+          </ion-fab>
+        
+        <ion-item (click)="salvaCacheReal()">
+         <video width="310"  id="mainVideo" style="margin:auto!important" height="240"  oncontextmenu="return false;"   >
+                    <source src="{{items.source}}" type="video/mp4">
+                        <source src="GSK_Our_story.ogg" type="video/ogg">
+
+                Your browser does not support the video tag.
+            </video>
+
+        </ion-item>    
+
+          <ion-card-header>
+            
+            <ion-card-subtitle>{{items.video}}</ion-card-subtitle>
+            <ion-card-title>Card Title</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+
+            Keep close to Nature's heart... and break clear away, once in awhile,
+            and climb a mountain or spend a week in the woods. Wash your spirit clean.
+          </ion-card-content>
+
+      </ion-card>
+</ion-col>
+    
+  </ion-row>
+
+</ion-grid>
+
+</ion-content>
